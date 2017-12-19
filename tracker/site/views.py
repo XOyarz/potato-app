@@ -134,9 +134,13 @@ class UpdateTicketView(ProjectContextMixin, UpdateView):
 
     def get_form_kwargs(self):
         kwargs = super(UpdateTicketView, self).get_form_kwargs()
-        kwargs['project'] = self.project
+        # Fix bug 2 & 3
+        x = Ticket.objects.get(pk=self.kwargs['ticket_id'])
+        kwargs['project'] = x.project
+
         kwargs['user'] = self.request.user
         kwargs['title'] = "Edit {0}".format(self.object.title)
+
         return kwargs
 
 
