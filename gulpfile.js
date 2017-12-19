@@ -38,5 +38,12 @@ gulp.task('copy-js', function () {
 	gulp.src(baseSrcDir + '/components/modernizr/modernizr.js').pipe(gulp.dest(baseDestDir + '/js/'));
 });
 
+// New watch function
+gulp.task('watch', function() {
+	gulp.watch(baseSrcDir + '/scss/*.scss', ['sass']);
+});
+
 gulp.task('build', ['build-styles', 'copy-styles', 'copy-js', 'concat-js'])
-gulp.task('default', ['build-styles']);
+// Added 'watch' task to the default task
+gulp.task('default', ['build-styles', 'watch']);
+
