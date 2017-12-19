@@ -5,6 +5,7 @@
 	<div class="row">
 		<h2>{{ project.title }} <small><a href="{% url "project-update" project_id=project.pk %}">edit</a></small></h2>
 	</div>
+	{% if tickets %}
 	<div class="row">
 		<table>
 			<thead>
@@ -21,6 +22,8 @@
 					<td>
 					{% for user in ticket.assignees.all %}
 						{{ user.email }}{% if not forloop.last %},{% endif %}
+					{% empty %}
+						<p>No users assigned</p>
 					{% endfor %}
 					</td>
 					<td>
@@ -31,10 +34,16 @@
 						</a>
 					</td>
 				</tr>
+
 				{% endfor %}
 			</tbody>
 		</table>
 	</div>
+	{% else %}
+		<div class="panel callout">
+			<h4>No tickets have been created for this project</h4>
+		</div>
+	{% endif %}
 	<div class="row">
 		<p><a href="{% url "ticket-create" project_id=project.pk %}" class="button">Create ticket</a></p>
 	</div>
