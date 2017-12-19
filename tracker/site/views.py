@@ -47,7 +47,18 @@ class ProjectListView(ListView):
     model = Project
     template_name = "site/project_list.html"
 
+    def get_context_data(self):
+        yolo = self.request.user.tickets.all()
+        projects = []
+        for i in yolo:
+            projects.append(i.project)
+        projects = set(projects)
 
+        other_projects = Project.objects.all()
+        other_projects = set(other_projects) - projects
+        print('other', other_projects, 'mine', projects)
+
+        return {'other_projects': other_projects, 'my_projects': projects}
 project_list_view = ProjectListView.as_view()
 
 
