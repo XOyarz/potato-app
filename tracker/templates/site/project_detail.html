@@ -23,6 +23,7 @@
 					<td>
 					{% for user in ticket.assignees.all %}
 						{{ user.email }}{% if not forloop.last %},{% endif %}
+					{# if no assignees, display message #}
 					{% empty %}
 						<p>No users assigned</p>
 					{% endfor %}
@@ -47,6 +48,7 @@
 			</tbody>
 		</table>
 	</div>
+	{# Added if clause up top to check for tickets, else display "No tickets" message #}
 	{% else %}
 		<div class="panel callout">
 			<h4>No tickets have been created for this project</h4>

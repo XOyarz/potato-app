@@ -139,6 +139,7 @@ if DEBUG:
     CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
     CSP_IMG_SRC += ("*.placehold.it",)
 
+# Fixed Bug 1
 #CRISPY_TEMPLATE_PACK = 'foundation-5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = ('bootstrap', 'uni_form', 'bootstrap3', 'bootstrap4', 'foundation-5')
 

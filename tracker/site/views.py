@@ -146,6 +146,7 @@ class UpdateTicketView(ProjectContextMixin, UpdateView):
 
 update_ticket_view = login_required(UpdateTicketView.as_view())
 
+# Added Delete View, together with new delete-ticket template and URL
 class DeleteTicketView(ProjectContextMixin, DeleteView):
     model = Ticket
     pk_url_kwarg = 'ticket_id'
