@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # Potato Backend Developer Test
 
@@ -55,4 +54,3 @@ Can you create a solution to solve this problem?  There is no right or wrong sol
 =======
 # potato-app
 Coding challenge for Potato
->>>>>>> 8fc975159aebbea974e77fbb892179b07578ec56
